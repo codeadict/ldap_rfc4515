@@ -1,9 +1,6 @@
-ldap_string_filters
-=====
+# LDAP RFC4515 parser for Erlang/Elixir
 
-An OTP library
 
-Build
------
+## Build
 
     $ rebar3 compile

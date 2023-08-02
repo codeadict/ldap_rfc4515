@@ -1,11 +1,11 @@
--module(ldap_string_filters).
+-module(ldap_rfc4515).
 
--export([parse/1]).
+-export([to_eldap/1]).
 
--spec parse(binary() | list()) -> {ok, eldap:filter()} | {error, any()}.
-parse(String) when is_binary(String) ->
-  parse(binary_to_list(String));
-parse(String) when is_list(String) ->
+-spec to_eldap(binary() | list()) -> {ok, eldap:filter()} | {error, any()}.
+to_eldap(String) when is_binary(String) ->
+  to_eldap(binary_to_list(String));
+to_eldap(String) when is_list(String) ->
   case tokens(String) of
     {ok, Tokens} ->
       try ldap_rfc4515_parser:parse(Tokens) of

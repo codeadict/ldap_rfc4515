@@ -1,5 +1,5 @@
-{application, ldap_string_filters,
- [{description, "Erlang RFC4515 ldap string filter parser"},
+{application, ldap_rfc4515,
+ [{description, "Erlang/Elixir parser for RFC4515 ldap string filters"},
   {vsn, "0.1.0"},
   {registered, []},
   {applications,
