@@ -1,0 +1,15 @@
+{application, ldap_string_filters,
+ [{description, "Erlang RFC4515 ldap string filter parser"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    eldap
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
