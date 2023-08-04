@@ -2,7 +2,17 @@
 
 -export([to_eldap/1]).
 
--spec to_eldap(binary() | list()) -> {ok, eldap:filter()} | {error, any()}.
+-ifdef(OTP_VERSION).
+-if(?OTP_VERSION >= 26).
+-type eldap_filter() :: eldap:filter().
+-else.
+-type eldap_filter() :: [].
+-endif.
+-else.
+-type eldap_filter() :: [].
+-endif.
+
+-spec to_eldap(binary() | list()) -> {ok, eldap_filter()} | {error, any()}.
 to_eldap(String) when is_binary(String) ->
   to_eldap(binary_to_list(String));
 to_eldap(String) when is_list(String) ->
