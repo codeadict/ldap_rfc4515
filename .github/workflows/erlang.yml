@@ -8,18 +8,12 @@ on:
       - 'main'
 jobs:
   linux:
-    name: Test on OTP ${{ matrix.otp_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-
+    name: Test on OTP ${{ matrix.otp_version }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         otp_version: ['26.0', '25.3', '24.3']
         rebar3: ['3.22.0']
-        os: [ubuntu-latest]
-
-    container:
-      image: erlang:${{ matrix.otp_version }}
-
     steps:
     - uses: actions/checkout@v2
     - uses: erlef/setup-beam@v1
