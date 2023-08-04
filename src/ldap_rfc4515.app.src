@@ -4,8 +4,7 @@
   {registered, []},
   {applications,
    [kernel,
-    stdlib,
-    eldap
+    stdlib
    ]},
   {env,[]},
   {modules, []},
