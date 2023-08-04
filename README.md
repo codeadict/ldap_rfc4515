@@ -1,5 +1,7 @@
 # LDAP RFC4515 parser for Erlang/Elixir
 
+[![Build, Test, Dialyze](https://github.com/codeadict/ldap_rfc4515/actions/workflows/erlang.yml/badge.svg)](https://github.com/codeadict/ldap_rfc4515/actions/workflows/erlang.yml)
+
 ## Installation
 
 ### Erlang
