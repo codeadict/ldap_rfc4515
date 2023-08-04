@@ -1,14 +1,14 @@
-{application, ldap_rfc4515,
- [{description, "Erlang/Elixir parser for RFC4515 ldap string filters"},
-  {vsn, "0.1.0"},
-  {registered, []},
-  {applications,
-   [kernel,
-    stdlib
-   ]},
-  {env,[]},
-  {modules, []},
+{application, ldap_rfc4515, [
+    {description, "Erlang/Elixir parser for RFC4515 ldap string filters"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {env, []},
+    {modules, []},
 
-  {licenses, ["Apache 2.0"]},
-  {links, []}
- ]}.
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+]}.
