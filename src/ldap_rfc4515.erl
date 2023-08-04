@@ -12,6 +12,8 @@
 -type eldap_filter() :: [].
 -endif.
 
+-export_type([eldap_filter/0]).
+
 -spec to_eldap(binary() | list()) -> {ok, eldap_filter()} | {error, any()}.
 to_eldap(String) when is_binary(String) ->
   to_eldap(binary_to_list(String));
