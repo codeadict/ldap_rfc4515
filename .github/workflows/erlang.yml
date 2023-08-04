@@ -1,4 +1,4 @@
-name: Build, Test, Dialyze
+name: CI Tests
 
 on:
   pull_request:
@@ -15,15 +15,25 @@ jobs:
         otp_version: ['26.0', '25.3', '24.3']
         rebar3: ['3.22.0']
     steps:
-    - uses: actions/checkout@v2
-    - uses: erlef/setup-beam@v1
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup Erlang
+      uses: erlef/setup-beam@v1
+      id: setup-beam
       with:
         otp-version: ${{matrix.otp_version}}
         rebar3-version: ${{matrix.rebar3}}
+    - name: Restore Dialyzer PLT
+      uses: actions/cache@v3
+      with:
+        path: _build/*/rebar3_*_plt
+        key: dialyzer-plt-cache-${{ steps.setup-beam.outputs.otp-version }}-${{ runner.os }}-${{ hashFiles('rebar.config*') }}-v1
     - name: Compile
       run: rebar3 compile
-    - name: Run tests
-      run: rebar3 eunit
+    - name: Xref
+      run: rebar3 xref
+    - name: EUnit (unit tests)
+      run: rebar3 eunit --verbose --cover
     - name: Dialyzer
       run: rebar3 dialyzer
 
