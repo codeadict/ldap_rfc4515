@@ -13,7 +13,8 @@ jobs:
 
     strategy:
       matrix:
-        otp_version: [22, 23, 24, 25, 26]
+        otp_version: ['26.0', '25.3', '24.3']
+        rebar3: ['3.22.0']
         os: [ubuntu-latest]
 
     container:
@@ -21,6 +22,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: erlef/setup-beam@v1
+      with:
+        otp-version: ${{matrix.otp}}
+        rebar3-version: ${{matrix.rebar3}}
     - name: Compile
       run: rebar3 compile
     - name: Run tests
