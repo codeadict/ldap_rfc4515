@@ -70,7 +70,6 @@ iex(3)> ~F"(|(gidNumber=4000)(uid=testuser)(memberUid=codeadict)(loginShell=/bin
     equalityMatch: {:AttributeValueAssertion, 'memberUid', 'codeadict'},
     equalityMatch: {:AttributeValueAssertion, 'loginShell', '/bin/bash'}
   ]}}
-iex> ExPurpleTiger.animal_hash("my ugly input string")
 ```
 
 ## Development
